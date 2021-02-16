@@ -4,6 +4,11 @@ ADD ./scripts /scripts
 ADD ./bin/slack /usr/local/bin
 RUN /scripts/php_install.sh
 RUN /scripts/node_install.sh
+RUN apt-get install -y gnupg2
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+RUN apt-get upgrade -y --fix-missing || echo "There was some warnings while running apt upgrade"
+RUN apt-get update || echo "There was some warnings while running apt update"
+RUN apt-get install mariadb-client -y
 RUN apt install ssl-cert apache2 -yqq
 RUN apt-get install jq -yqq
 RUN apt-get clean
