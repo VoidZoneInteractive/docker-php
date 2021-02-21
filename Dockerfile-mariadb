@@ -1,9 +1,6 @@
-FROM ubuntu:20.04
+FROM mariadb:10.3
 
 RUN mkdir /dev/shm/mysql
-RUN ln -s /dev/shm/mysql/mysql /var/lib/
-#RUN chown -R mysql:mysql /dev/shm/mysql/mysql
-#RUN chcon -R -t mysqld_db_t /dev/shm/mysql/mysql
+RUN chmod 0777 /dev/shm/mysql
 
-RUN apt update
-RUN apt install -y mariadb-server-10.3
+RUN sed -i "s|/tmp|/dev/shm/mysql|" /etc/mysql/my.cnf
