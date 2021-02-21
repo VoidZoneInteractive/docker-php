@@ -6,4 +6,4 @@ RUN ln -s /dev/shm/mysql/mysql /var/lib/
 #RUN chcon -R -t mysqld_db_t /dev/shm/mysql/mysql
 
 RUN apt update
-RUN apt install mariadb-server-10.3
+RUN apt install -y mariadb-server-10.3
