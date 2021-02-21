@@ -1,6 +1,7 @@
 FROM mariadb:10.3
 
 RUN mkdir /dev/shm/mysql
-RUN chmod 0777 /dev/shm/mysql
 
 RUN sed -i "s|/tmp|/dev/shm/mysql|" /etc/mysql/my.cnf
+
+RUN service mysql restart
