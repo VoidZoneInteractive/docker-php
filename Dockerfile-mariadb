@@ -7,6 +7,7 @@ FROM mariadb:10.3
 #RUN apt-get clean
 
 RUN mkdir /dev/shm/mysql
+RUN mv /var/lib/mysql/ /dev/shm/mysql
 RUN ln -s /dev/shm/mysql/mysql /var/lib/
 RUN chown -R mysql:mysql /dev/shm/mysql/mysql
 RUN chcon -R -t mysqld_db_t /dev/shm/mysql/mysql
