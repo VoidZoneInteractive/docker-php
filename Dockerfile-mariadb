@@ -2,8 +2,8 @@ FROM ubuntu:20.04
 
 RUN mkdir /dev/shm/mysql
 RUN ln -s /dev/shm/mysql/mysql /var/lib/
-RUN chown -R mysql:mysql /dev/shm/mysql/mysql
-RUN chcon -R -t mysqld_db_t /dev/shm/mysql/mysql
+#RUN chown -R mysql:mysql /dev/shm/mysql/mysql
+#RUN chcon -R -t mysqld_db_t /dev/shm/mysql/mysql
 
 RUN apt update
 RUN apt install mariadb-server-10.3
